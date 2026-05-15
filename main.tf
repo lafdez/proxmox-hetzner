@@ -49,11 +49,23 @@ resource "proxmox_vm_qemu" "${var.minecraft_vm_name}" {
     link_down = false
   }
 
-  disk {
-    size    = var.minecraft_vm_disk_size
-    type    = var.minecraft_vm_disk_type
-    storage = var.minecraft_vm_disk_storage
-    slot    = var.minecraft_vm_disk_slot
+  disks {
+    scsi {
+      scsi0 {
+        cdrom {
+          iso = "${proxmox_cloud_init_disk.${var.minecraft_vm_name}-ci-disk.id}"}
+      }
+    }
+    virtio {
+      virtio0 {
+        disk { 
+          size    = var.minecraft_vm_disk_size
+          type    = var.minecraft_vm_disk_type
+          storage = var.minecraft_vm_disk_storage
+          slot    = var.minecraft_vm_disk_slot
+        }
+      }
+    }
   }
 
   bootdisk = var.minecraft_vm_bootdisk
