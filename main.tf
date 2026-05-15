@@ -1,3 +1,30 @@
+resource "proxmox_cloud_init_disk" "${var.minecraft_vm_name}-ci-disk" {
+  name        = "${var.minecraft_vm_name}-ci-disk"
+  description = "Cloud-Init Disk"
+  target_node = var.minecraft_vm_target_node
+
+  meta_data = yamlencode({
+    instance_id = sha1(var.minecraft_vm_name)
+    local_hostname = var.minecraft_vm_name
+  })
+
+  user_data = var.cloud_init_user_data
+
+  network_config = yamlencode({
+    version = 1
+    config = [{
+      type = "physical"
+      name = ${var.minecraft_vm_network_model}${var.minecraft_vm_network_id}
+      subnets = [{
+        type = "static"
+        address = var.minecraft_vm_address
+        gateway = var.minecraft_vm_gateway
+        dns_nameservers = var.minecraft_vm_dns_servers
+      }]
+    }]
+  })
+}
+
 resource "proxmox_vm_qemu" "${var.minecraft_vm_name}" {
   name        = var.minecraft_vm_name
   description = var.minecraft_vm_desc
@@ -21,7 +48,6 @@ resource "proxmox_vm_qemu" "${var.minecraft_vm_name}" {
     bridge    = var.minecraft_vm_network_bridge
     link_down = false
   }
-  ipconfig0 = var.minecraft_vm_ipconfig0
 
   disk {
     size    = var.minecraft_vm_disk_size
