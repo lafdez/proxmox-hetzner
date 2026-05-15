@@ -50,6 +50,14 @@ variable "minecraft_vm_memory" {
   type = number
 }
 
+variable "minecraft_vm_scsihw" {
+  type = string
+}
+
+variable "minecraft_vm_hotplug" {
+  type = string
+}
+
 variable "minecraft_vm_disk_size" {
   type = string
 }
