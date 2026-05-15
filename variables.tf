@@ -34,8 +34,16 @@ variable "minecraft_vm_clone" {
   type = string
 }
 
-variable "minecraft_vm_ipconfig0" {
+variable "minecraft_vm_address" {
   type = string
+}
+
+variable "minecraft_vm_gateway" {
+  type = string
+}
+
+variable "minecraft_vm_dns_servers" {
+  type = list(string)
 }
 
 variable "minecraft_vm_cpu_cores" {
