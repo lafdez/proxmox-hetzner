@@ -14,10 +14,6 @@ variable "tls_insecure" {
   type = bool
 }
 
-variable "vm_ssh_key" {
-  type = string
-}
-
 variable "minecraft_vm_name" {
   type = string
 }
@@ -42,8 +38,8 @@ variable "minecraft_vm_gateway" {
   type = string
 }
 
-variable "minecraft_vm_dns_servers" {
-  type = list(string)
+variable "minecraft_vm_dns_server" {
+  type = string
 }
 
 variable "minecraft_vm_cpu_cores" {
@@ -90,4 +86,27 @@ variable "minecraft_vm_boot" {
   type = string
 }
 
+variable "minecraft_vm_network_id" {
+  type = number
+}
 
+variable "minecraft_vm_network_model" {
+  type = string
+}
+
+variable "minecraft_vm_network_bridge" {
+  type = string
+}
+
+variable "ssh_public_key" {
+  type = string
+}
+
+variable "cloudinit_disk_slot" {
+  type = string
+}
+
+variable "cipassword" {
+  type      = string
+  sensitive = true
+}
