@@ -98,6 +98,90 @@ variable "minecraft_vm_network_bridge" {
   type = string
 }
 
+variable "satisfactory_vm_name" {
+  type = string
+}
+
+variable "satisfactory_vm_desc" {
+  type = string
+}
+
+variable "satisfactory_vm_target_node" {
+  type = string
+}
+
+variable "satisfactory_vm_clone" {
+  type = string
+}
+
+variable "satisfactory_vm_address" {
+  type = string
+}
+
+variable "satisfactory_vm_gateway" {
+  type = string
+}
+
+variable "satisfactory_vm_dns_server" {
+  type = string
+}
+
+variable "satisfactory_vm_cpu_cores" {
+  type = number
+}
+
+variable "satisfactory_vm_cpu_sockets" {
+  type = number
+}
+
+variable "satisfactory_vm_memory" {
+  type = number
+}
+
+variable "satisfactory_vm_scsihw" {
+  type = string
+}
+
+variable "satisfactory_vm_hotplug" {
+  type = string
+}
+
+variable "satisfactory_vm_disk_size" {
+  type = string
+}
+
+variable "satisfactory_vm_disk_type" {
+  type = string
+}
+
+variable "satisfactory_vm_disk_storage" {
+  type = string
+}
+
+variable "satisfactory_vm_disk_slot" {
+  type = string
+}
+
+variable "satisfactory_vm_bootdisk" {
+  type = string
+}
+
+variable "satisfactory_vm_boot" {
+  type = string
+}
+
+variable "satisfactory_vm_network_id" {
+  type = number
+}
+
+variable "satisfactory_vm_network_model" {
+  type = string
+}
+
+variable "satisfactory_vm_network_bridge" {
+  type = string
+}
+
 variable "ssh_public_key" {
   type = string
 }
