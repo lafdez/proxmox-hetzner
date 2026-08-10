@@ -14,6 +14,19 @@ variable "tls_insecure" {
   type = bool
 }
 
+variable "ssh_public_key" {
+  type = string
+}
+
+variable "cloudinit_disk_slot" {
+  type = string
+}
+
+variable "cipassword" {
+  type      = string
+  sensitive = true
+}
+
 variable "minecraft_vm_name" {
   type = string
 }
@@ -182,15 +195,3 @@ variable "satisfactory_vm_network_bridge" {
   type = string
 }
 
-variable "ssh_public_key" {
-  type = string
-}
-
-variable "cloudinit_disk_slot" {
-  type = string
-}
-
-variable "cipassword" {
-  type      = string
-  sensitive = true
-}
